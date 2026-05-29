@@ -1,7 +1,7 @@
 # Storage Module — S3 + CloudFront
 
 resource "aws_s3_bucket" "frontend" {
-  bucket = "${var.project_name}-frontend-${var.environment}"
+  bucket = "${var.project_name}-frontend-${var.environment}-oluwakemi"
   tags   = { Name = "${var.project_name}-frontend" }
 }
 
