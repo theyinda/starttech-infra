@@ -1,0 +1,32 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "properties": {
+        "title": "Backend CPU Utilization",
+        "metrics": [["AWS/EC2", "CPUUtilization", "AutoScalingGroupName", "starttech-asg"]],
+        "period": 300,
+        "stat": "Average",
+        "region": "us-east-1"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "title": "ALB Request Count",
+        "metrics": [["AWS/ApplicationELB", "RequestCount", "LoadBalancer", "starttech-alb"]],
+        "period": 300,
+        "stat": "Sum",
+        "region": "us-east-1"
+      }
+    },
+    {
+      "type": "log",
+      "properties": {
+        "title": "Backend Errors",
+        "query": "SOURCE '/starttech/backend' | filter level = 'ERROR' | stats count() by bin(5m)",
+        "region": "us-east-1"
+      }
+    }
+  ]
+}

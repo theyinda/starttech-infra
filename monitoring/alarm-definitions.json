@@ -1,0 +1,22 @@
+{
+  "alarms": [
+    {
+      "name": "starttech-high-cpu",
+      "metric": "CPUUtilization",
+      "threshold": 80,
+      "action": "scale-up"
+    },
+    {
+      "name": "starttech-low-cpu",
+      "metric": "CPUUtilization",
+      "threshold": 20,
+      "action": "scale-down"
+    },
+    {
+      "name": "starttech-alb-5xx",
+      "metric": "HTTPCode_Target_5XX_Count",
+      "threshold": 10,
+      "action": "notify"
+    }
+  ]
+}

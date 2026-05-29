@@ -1,0 +1,15 @@
+# Error rate query
+SOURCE '/starttech/backend'
+| filter level = "ERROR"
+| stats count() as error_count by bin(5m)
+| sort by bin desc
+
+# Slow requests query
+SOURCE '/starttech/backend'
+| filter duration > 1000
+| stats avg(duration) as avg_duration, count() as request_count by bin(5m)
+
+# Authentication failures
+SOURCE '/starttech/backend'
+| filter msg like /authentication failed/
+| stats count() by bin(1h)
